@@ -1,60 +1,65 @@
-Leed Building Analysis
+LEED Building Analysis
 ==============================
-
-Tools for analyzing buildings based on LEED certifications.
+Analyzing LEED certified buildings in Massachusetts.
 
 Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    ├── Makefile            <- The Makefile with commands like `make data` or `make train`.
+    ├── README.md           <- The top-level README for developers.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs                <- A default Sphinx project (see sphinx-doc.org)
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── models              <- The trained and serialized models, model predictions, or model summaries.
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── notebooks           <- Jupyter notebooks (Naming convention `1.0-jqp-initial-data-exploration`)
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── references          <- Data dictionaries, manuals, and all other explanatory materials.
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── reports             <- The generated analysis as HTML, PDF, LaTeX, etc.
+    │   └── figures         <- The generated graphics and figures
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── requirements.txt    <- The requirements file for reproducing the analysis environment
     │
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    ├── src                 <- Source code
+    │   ├── __init__.py     <- Makes src a Python module
     │   │
-    │   ├── data           <- Scripts to download or generate data
+    │   ├── common
+    │   │
+    │   ├── data            <- The scripts to download or generate data.
+    │   │   ├── raw         <- The original, immutable data dump.
+    │   │   ├── external(?) <- Any data from third party sources.
+    │   │   ├── interim(?)  <- The intermediate data that has been transformed
+    │   │   ├── processed(?)<- The final, canonical data sets for modeling.
     │   │   └── make_dataset.py
+    │   │   └── usgbc.py    <- Project File (The U.S. Green Building Council)
     │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
+    │   ├── evaluation
+    │   │
+    │   ├── features        <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
     │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
+    │   ├── models          <- Scripts to train models and then use trained models to make predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
+    │   └── visualization   <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
+    ├── test_environment.py
+    │
+    └── tox.ini             <- The tox file with settings for running tox (see tox.testrun.org)
 
 
 --------
 
+## Authors **Jay Myles and Annie Waye**: [J. Myles](https://github.com/j-Myles) , [A. Waye](https://github.com/annie-waye)  
+
 Version Tracker
 ------------
 
-0.1.1   Created repo and started Github
-
+0.1.1   Created repo and started Github (Oct 22)
+0.1.2   Testing commit (Oct 22)
+0.2.1   Merged pull request from Jay, adding raw data, metrics, pre-processing functions (Oct 24)
+0.3.1   Updated README (Oct 24)
