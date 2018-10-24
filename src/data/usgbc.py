@@ -1,4 +1,6 @@
 import pandas as pd
+import sklearn.preprocessing as skp
+import sklearn.model_selection as skm
 
 
 def read_data_spreadsheet(filename):
@@ -53,13 +55,13 @@ def get_valid_frames(dataframe):
     return valid_indices
 
 
-def reformat(dataframe, indices):
+def arrange_cols(dataframe, indices):
     df = pd.DataFrame(columns=['Name', 'Date', 'City',
                                'State', 'Country', 'Construction',
-                               'Validation'])
+                               'Validation', 'Certification'])
     for frame in indices:
         start = frame[0]
-        end = frame[1]
+        end = frame[1] + 1
         section = dataframe.iloc[start:end]
         col_vals = section['all'].values
         df_section = pd.DataFrame({'Name': [col_vals[0]],
@@ -68,17 +70,39 @@ def reformat(dataframe, indices):
                                    'State': [col_vals[4]],
                                    'Country': [col_vals[5]],
                                    'Construction': [col_vals[6]],
-                                   'Validation': [col_vals[7]]})
+                                   'Validation': [col_vals[7]],
+                                   'Certification': [col_vals[8]]})
         df = df.append(df_section)
+    df = df.reset_index(drop=True)
     return df
+
+
+def remove_duplicates(dataframe):
+    dataframe = dataframe.drop_duplicates()
+    dataframe = dataframe.reset_index(drop=True)
+    return dataframe
+
+
+def fit_encode(dataframe):
+    processed = dataframe.copy()
+    l_enc = skp.LabelEncoder()
+    processed['Construction'] = l_enc.fit_transform(processed['Construction'])
+    processed['Validation'] = l_enc.fit_transform(processed['Validation'])
+    processed['Certification'] = l_enc.fit_transform(processed['Certification'])
+    processed = processed.drop(['Name'], axis=1)
+    return processed
 
 
 def impl():
     dat = read_data_spreadsheet('raw/boston_projects.xlsx')
     dat = add_primary(dat)
     indices = get_valid_frames(dat)
-    dat = reformat(dat, indices)
-    print(dat)
+    dat = arrange_cols(dat, indices)
+    dat = remove_duplicates(dat)
+    proc = fit_encode(dat)
+    #print(proc)
+    #dat = reformat(dat, indices)
+    #print(dat)
     pass
 
 
