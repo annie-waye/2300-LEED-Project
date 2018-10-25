@@ -1,6 +1,9 @@
 import src.data.prepare as prep
 import src.data.process as proc
 import src.data.clean as cl
+import src.data.plot as pl
+
+#plt.interactive(False)
 
 if __name__ == '__main__':
     # Get Data
@@ -15,6 +18,11 @@ if __name__ == '__main__':
     real_data = cl.remove_duplicates(real_data)
     real_data = cl.convert_dates(real_data)
 
-    # Start ML Testing/Training
+    # Start Analyzing Data
     proc_data = proc.fit_encode(real_data)
-    print(proc_data)
+    proc_date_data = proc.analyze_by_date(proc_data)
+
+    # Start Plotting Data
+    pl.primary_plot(proc_date_data, 'Certification')
+    #pl.primary_plot(proc_date_data, 'Construction')
+    #print(proc_data)
