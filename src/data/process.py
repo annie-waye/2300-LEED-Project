@@ -10,3 +10,9 @@ def fit_encode(dataframe):
     processed['Certification'] = l_enc.fit_transform(processed['Certification'])
     processed = processed.drop(['Name'], axis=1)
     return processed
+
+
+def analyze_by_date(dataframe):
+    df = dataframe.copy()
+    df = df.groupby(pd.Grouper(key='Date', freq='1Y', axis=0)).mean()
+    return df
