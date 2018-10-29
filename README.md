@@ -29,10 +29,11 @@ Project Organization
     │   │
     │   ├── data            <- The scripts to download or generate data.
     │   │   ├── raw         <- The original, immutable data dump.
-    │   │   ├── external(?) <- Any data from third party sources.
-    │   │   ├── interim(?)  <- The intermediate data that has been transformed
-    │   │   ├── processed(?)<- The final, canonical data sets for modeling.
     │   │   └── make_dataset.py
+    │   │   └── prepare.py  <- prep data for processing
+    │   │   └── process.py  <- fit the data
+    │   │   └── clean.py    <- clean data, remove duplicates
+    │   │   └── plot.py     <- preliminary plotting
     │   │   └── usgbc.py    <- Project File (The U.S. Green Building Council)
     │   │
     │   ├── evaluation
@@ -63,3 +64,5 @@ Version Tracker
 0.1.2   Testing commit (Oct 22)
 0.2.1   Merged pull request from Jay, adding raw data, metrics, pre-processing functions (Oct 24)
 0.3.1   Updated README (Oct 24)
+0.4.1   Merged pull request from Jay, adding data processing, preliminary polotting (Oct 27)
+0.4.2   Updated README (Oct 28)
