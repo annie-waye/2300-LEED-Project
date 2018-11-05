@@ -1,13 +1,29 @@
-import src.data.prepare as prep
-import src.data.process as proc
-import src.data.clean as cl
-import src.data.plot as pl
+import data.prepare as prep
+import data.process as proc
+import data.clean as cl
+import data.plot as pl
+import argparse
 
-#plt.interactive(False)
+# TODO Add docstrings
+# TODO Add move plot to visualization module
+# TODO fix any formatting issues (e.g., font size) and add as optional parameters to method (default set as plt default)
+# TODO Add argparse to script files
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Text Analysis through TFIDF computation',
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('-i', '--input', type=str, default='raw/boston_projects.xlsx', help='')
+    parser.add_argument('-d', '--datadir', type=str, help='Root directory containing data',
+                        default='C:\\Users\\Annie Waye\\Desktop\\NEU Sept 5\\EECE 2300\\code\\leed_building_analysis\\data\\')
+    args = parser.parse_args()
+
+
     # Get Data
-    raw_data = prep.fetch_data()
+    dpath = 'raw/boston_projects.xlsx'
+    data_dir = 'C:\\Users\\Annie Waye\\Desktop\\NEU Sept 5\\EECE 2300\\code\\leed_building_analysis\\data\\'
+    filepath = data_dir + dpath
+
+    raw_data = prep.fetch_data(filepath)
 
     # Arrange Data in Columns
     pre_data = prep.pre_arrange_cols(raw_data)

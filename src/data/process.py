@@ -3,6 +3,11 @@ import sklearn.preprocessing as skp
 
 
 def fit_encode(dataframe):
+    """
+
+    :param dataframe:
+    :return:
+    """
     processed = dataframe.copy()
     l_enc = skp.LabelEncoder()
     processed['Construction'] = l_enc.fit_transform(processed['Construction'])

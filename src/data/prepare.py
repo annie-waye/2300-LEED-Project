@@ -12,12 +12,21 @@ def read_data_spreadsheet(filename):
     return contents
 
 
-def fetch_data():
-    raw_data = read_data_spreadsheet('raw/boston_projects.xlsx')
+def fetch_data(filepath):
+    """
+
+    :return:
+    """
+    raw_data = read_data_spreadsheet(filepath)
     return raw_data
 
 
 def pre_arrange_cols(dataframe):
+    """
+    DOCSTRING
+    :param dataframe:
+    :return:
+    """
     col_name = dataframe.columns.values[0]
     dataframe.loc[-1] = col_name
     dataframe.index = dataframe.index + 1
@@ -27,6 +36,11 @@ def pre_arrange_cols(dataframe):
 
 
 def check_certification(cert):
+    """
+
+    :param cert:
+    :return:
+    """
     return cert in ['Silver', 'Gold', 'Platinum', 'Certified']
 
 
@@ -39,6 +53,11 @@ def valid_index_range(start, end):
 
 
 def get_valid_frames(dataframe):
+    """
+
+    :param dataframe:
+    :return:
+    """
     start_index = 0
     end_index = 0
     indices = []
