@@ -1,13 +1,17 @@
-import src.data.prepare as prep
-import src.data.process as proc
-import src.data.clean as cl
-import src.data.plot as pl
-
+import data.prepare as prep
+import data.process as proc
+import data.clean as cl
+import data.plot as pl
+# TODO Add docstrings
 #plt.interactive(False)
 
 if __name__ == '__main__':
     # Get Data
-    raw_data = prep.fetch_data()
+    dpath = 'raw/boston_projects.xlsx'
+    data_dir = 'C:\\Users\\Annie Waye\\Desktop\\NEU Sept 5\\EECE 2300\\code\\leed_building_analysis\\data\\'
+    filepath = data_dir + dpath
+
+    raw_data = prep.fetch_data(filepath)
 
     # Arrange Data in Columns
     pre_data = prep.pre_arrange_cols(raw_data)
