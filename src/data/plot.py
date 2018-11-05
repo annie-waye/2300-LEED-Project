@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def primary_plot(dataframe, axis, title=None):
+def primary_plot(df, axis, title=None, rotation_angle=0):
     """
 
     :param dataframe:
@@ -10,12 +10,12 @@ def primary_plot(dataframe, axis, title=None):
     :param title:
     :return:
     """
-
-    ax = dataframe[axis].plot(kind='bar')
+    # nelements = len(dataframe[axis]) if len(axis) == 1 else len(dataframe[axis[0]])
+    ax = df[axis].plot(kind='bar')
     xtl = [item.get_text()[:10] for item in ax.get_xticklabels()]
     # _ = ax.set_xticklabels(xtl)
-    plt.xticks(np.arange(0, len(dataframe[axis])), xtl, rotation=22.5)
-    plt.ylabel(axis)
+    plt.xticks(np.arange(0, len(df)), xtl, rotation=rotation_angle)
+    plt.legend(axis)
+    # plt.ylabel(axis)
     plt.title(title)
     plt.tight_layout()
-    plt.show()
