@@ -4,9 +4,8 @@ import sklearn.preprocessing as skp
 
 def fit_encode(dataframe):
     """
-
-    :param dataframe:
-    :return:
+    :param dataframe: desired data set
+    :return: processing, transforms rows/columns
     """
     processed = dataframe.copy()
     l_enc = skp.LabelEncoder()
@@ -18,6 +17,11 @@ def fit_encode(dataframe):
 
 
 def analyze_by_date(dataframe):
+    """
+
+    :param dataframe: desired data set
+    :return: grouped data by date
+    """
     df = dataframe.copy()
     df = df.groupby(pd.Grouper(key='Date', freq='1Y', axis=0)).mean()
     return df

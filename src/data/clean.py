@@ -7,6 +7,11 @@ def convert_dates(dataframe):
 
 
 def remove_duplicates(dataframe):
+    """
+
+    :param dataframe: desired data set
+    :return: dataframe without duplicates, re-indexed
+    """
     dataframe = dataframe.drop_duplicates()
     dataframe = dataframe.reset_index(drop=True)
     return dataframe

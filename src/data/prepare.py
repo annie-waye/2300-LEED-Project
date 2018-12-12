@@ -4,7 +4,7 @@ import pandas as pd
 def read_data_spreadsheet(filename):
     """
     Reads excel...
-    :param filename:
+    :param filename: file path of desired data
     :return: pd.DataFrame of all file contents
     """
     contents = pd.read_excel(filename)
@@ -14,8 +14,9 @@ def read_data_spreadsheet(filename):
 
 def fetch_data(filepath):
     """
-
-    :return:
+    Gets file in readable format
+    :param filepath: file path of desired data
+    :return: returns the spreadsheet in a readable format
     """
     raw_data = read_data_spreadsheet(filepath)
     return raw_data
@@ -23,9 +24,9 @@ def fetch_data(filepath):
 
 def pre_arrange_cols(dataframe):
     """
-    DOCSTRING
-    :param dataframe:
-    :return:
+
+    :param dataframe: uses data in dataframe format
+    :return: arranged dataframe
     """
     col_name = dataframe.columns.values[0]
     dataframe.loc[-1] = col_name
@@ -54,9 +55,8 @@ def valid_index_range(start, end):
 
 def get_valid_frames(dataframe):
     """
-
-    :param dataframe:
-    :return:
+    :param dataframe: arranged data set
+    :return: clean indicies, eliminates invalid frames (i.e. cell contains URL)
     """
     start_index = 0
     end_index = 0
@@ -78,6 +78,12 @@ def get_valid_frames(dataframe):
 
 
 def arrange_cols(dataframe, indices):
+    """
+
+    :param dataframe: desired data set
+    :param indices: prepared/valid indicies
+    :return: cleaned dataframe
+    """
     df = pd.DataFrame(columns=['Name', 'Date', 'City',
                                'State', 'Country', 'Construction',
                                'Validation', 'Certification'])
