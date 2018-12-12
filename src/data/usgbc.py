@@ -1,8 +1,8 @@
-import src.data.prepare as prep
-import src.data.process as proc
-import src.data.clean as cl
-import src.data.plot as pl
-import src.data.regress as rg
+import data.prepare as prep
+import data.process as proc
+import data.clean as cl
+import data.plot as pl
+import data.regress as rg
 
 import argparse
 import os
@@ -50,10 +50,11 @@ if __name__ == '__main__':
     #pl.primary_plot(proc_date_data, 'Construction')
     #print(proc_data)
 
-    # Linear Regression - We'll put this in a seperate module later
+    # Linear Regression - We'll put this in a separate module later
     sort_data = proc_data.sort_values('Date')
     sort_data = sort_data.reset_index(drop=True)
 
+    # Certification
     csort_data = sort_data[['Certification']]
     ctrain_data = csort_data[csort_data.index % 5 == 0]
     ctest_data = csort_data[csort_data.index % 5 != 0]
@@ -63,6 +64,7 @@ if __name__ == '__main__':
     ctrain_y = ctrain_data['Certification'].values.reshape(-1, 1)
     ctest_y = ctest_data['Certification'].values.reshape(-1, 1)
 
+    # Validation
     vsort_data = sort_data[['Validation']]
     vtrain_data = vsort_data[vsort_data.index % 5 == 0]
     vtest_data = vsort_data[vsort_data.index % 5 != 0]
@@ -72,5 +74,5 @@ if __name__ == '__main__':
     vtrain_y = vtrain_data['Validation'].values.reshape(-1, 1)
     vtest_y = vtest_data['Validation'].values.reshape(-1, 1)
 
-    #rg.lin_reg(ctrain_x, ctest_x, ctrain_y, ctest_y)
-    rg.lin_reg(vtrain_x, vtest_x, vtrain_y, vtest_y)
+    #rg.lin_reg(ctrain_x, ctest_x, ctrain_y, ctest_y)   # regression on Certification
+    rg.lin_reg(vtrain_x, vtest_x, vtrain_y, vtest_y)    # regression on Validation
