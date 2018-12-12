@@ -18,6 +18,6 @@ def fit_encode(dataframe):
 
 
 def analyze_by_date(dataframe):
-    df = dataframe.copy()
-    df = df.groupby(pd.Grouper(key='Date', freq='1Y', axis=0)).mean()
+    df = dataframe.groupby(dataframe['Date'].dt.year).mean()
+    df.reset_index(inplace=True)
     return df

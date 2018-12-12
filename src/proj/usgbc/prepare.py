@@ -1,26 +1,6 @@
 import pandas as pd
 
 
-def read_data_spreadsheet(filename):
-    """
-    Reads excel...
-    :param filename:
-    :return: pd.DataFrame of all file contents
-    """
-    contents = pd.read_excel(filename)
-
-    return contents
-
-
-def fetch_data(filepath):
-    """
-
-    :return:
-    """
-    raw_data = read_data_spreadsheet(filepath)
-    return raw_data
-
-
 def pre_arrange_cols(dataframe):
     """
     DOCSTRING
