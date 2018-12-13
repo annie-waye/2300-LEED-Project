@@ -5,7 +5,7 @@ from ..glbl import prepare as gprep
 
 def get_data(filepath):
     # Get data from filepath
-    raw_data = gprep.get_data(filepath)
+    raw_data = gprep.get_data(filepath, 'xlsx')
 
     # Arrange data in proper columns
     pre_data = eprep.arrange_cols(raw_data)
