@@ -3,9 +3,9 @@ import pandas as pd
 
 def pre_arrange_cols(dataframe):
     """
-
-    :param dataframe: desired data
-    :return: arranged data frame
+    DOCSTRING
+    :param dataframe:
+    :return:
     """
     col_name = dataframe.columns.values[0]
     dataframe.loc[-1] = col_name
@@ -18,36 +18,25 @@ def pre_arrange_cols(dataframe):
 def check_certification(cert):
     """
 
-    :param cert: cert cell value
-    :return: verified value
+    :param cert:
+    :return:
     """
     return cert in ['Silver', 'Gold', 'Platinum', 'Certified']
 
 
 def check_version(ver):
-    """
-
-    :param ver: version cell value
-    :return: verified value
-    """
     return ver.startswith('v')
 
 
 def valid_index_range(start, end):
-    """
-
-    :param start: first index
-    :param end: last index
-    :return: boolean check for index
-    """
     return end - start == 8
 
 
 def get_valid_frames(dataframe):
     """
 
-    :param dataframe: desired data
-    :return: correct indicies
+    :param dataframe:
+    :return:
     """
     start_index = 0
     end_index = 0

@@ -3,11 +3,6 @@ import numpy as np
 
 
 def show(dataframe):
-    """
-
-    :param dataframe: desired data
-    :return: plot show
-    """
     x = dataframe['Date'].values
     y1 = dataframe['Construction'].values
     y2 = dataframe['Validation'].values
@@ -43,7 +38,7 @@ def show(dataframe):
 def primary_plot(df, axis, title=None, rotation_angle=0):
     """
 
-    :param dataframe: desired data
+    :param dataframe:
     :param axis:
     :param title:
     :return:

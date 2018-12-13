@@ -4,11 +4,6 @@ from ..glbl import prepare as gprep
 
 
 def get_data(filepath):
-    """
-
-    :param filepath: data file path
-    :return: accessed data
-    """
     # Get data from filepath
     raw_data = gprep.get_data(filepath)
 

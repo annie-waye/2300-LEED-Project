@@ -3,22 +3,12 @@ import pandas as pd
 
 
 def remove_empties(dataframe):
-    """
-
-    :param dataframe: desired data frame
-    :return: data without empty cells
-    """
     dataframe.drop([5, 7, 8], inplace=True)
     dataframe.reset_index(drop=True, inplace=True)
     pass
 
 
 def parse_data(dataframe):
-    """
-
-    :param dataframe: desired data frame
-    :return: appropriate student dataframe
-    """
     years = []
     students = []
 
