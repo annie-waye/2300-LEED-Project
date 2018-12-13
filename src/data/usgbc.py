@@ -8,6 +8,7 @@ import argparse
 import os
 import pathlib as plib
 
+# TODO Add docstrings
 # TODO Add move plot to visualization module
 # TODO fix any formatting issues (e.g., font size) and add as optional parameters to method (default set as plt default)
 # TODO Add argparse to script files

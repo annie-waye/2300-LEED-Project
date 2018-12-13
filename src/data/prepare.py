@@ -39,8 +39,8 @@ def pre_arrange_cols(dataframe):
 def check_certification(cert):
     """
 
-    :param cert: certification input values
-    :return: valid certification labels
+    :param cert:
+    :return:
     """
     return cert in ['Silver', 'Gold', 'Platinum', 'Certified']
 
