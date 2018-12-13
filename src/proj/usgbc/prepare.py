@@ -76,3 +76,23 @@ def arrange_cols(dataframe, indices):
                                    'Certification': [col_vals[8]]})
         df = df.append(df_section)
     return df
+
+
+def check_city(dataframe):
+    dataframe['City'] = dataframe['City'].str.upper()
+    pass
+
+
+def strip_cols(dataframe):
+    df = dataframe.drop(['Path'], axis=1)
+    return df
+
+
+def rename_cols(dataframe):
+    df = dataframe.rename(index=str, columns={'Certification date': 'Date',
+                                              'Unnamed: 0': 'Name',
+                                              'Rating system': 'Construction',
+                                              'Version': 'Validation',
+                                              'Certification level': 'Certification'})
+    check_city(df)
+    return df
