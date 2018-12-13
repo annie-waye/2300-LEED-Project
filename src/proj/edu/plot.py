@@ -2,6 +2,11 @@ import matplotlib.pyplot as plt
 
 
 def show(dataframe):
+    """
+
+    :param dataframe: desired data
+    :return: show plot
+    """
     x = dataframe['Years'].values
     y = dataframe['Percentage'].values
 
